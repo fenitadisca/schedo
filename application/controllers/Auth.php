@@ -32,8 +32,15 @@ class Auth extends CI_Controller {
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('user', ['email' => $email]) ->row_array();
-        var_dump($user); 
-        die;
+        
+        if($user) {
+            //usernya ada
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+           Email is not registered!
+          </div>');
+            redirect('auth');
+        }
     }
 
     public function registration()
