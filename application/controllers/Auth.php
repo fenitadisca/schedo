@@ -18,8 +18,22 @@ class Auth extends CI_Controller {
             $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/login');
             $this->load->view('templates/auth_footer'); 
-        } 
+        } else {
+            //apabila validasinya sukses
+            $this->_login();
+        }
         
+    }
+
+
+    private function _login() 
+    {
+        $email = $this->input->post('email');
+        $password = $this->input->post('password');
+
+        $user = $this->db->get_where('user', ['email' => $email]) ->row_array();
+        var_dump($user); 
+        die;
     }
 
     public function registration()
