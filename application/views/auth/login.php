@@ -19,7 +19,7 @@
                                      <div class="form-group">
                                          <input type="text" class="form-control form-control-user" id="email"
                                              name="email" aria-describedby="emailHelp"
-                                             placeholder="Enter Email Address...">
+                                             placeholder="Enter Email Address..." value="<?= set_value('email');?>">
                                          <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                      </div>
                                      <div class="form-group">
